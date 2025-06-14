@@ -1,4 +1,7 @@
+
 import React, { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/components/ui/use-toast";
 
 export default function EarlyAccessForm() {
   const [formData, setFormData] = useState({
@@ -8,11 +11,35 @@ export default function EarlyAccessForm() {
     mobileNumber: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    const { fullName, storeName, storeType, mobileNumber } = formData;
+    const { error } = await supabase
+      .from("early_access_requests")
+      .insert([
+        {
+          full_name: fullName,
+          store_name: storeName,
+          store_type: storeType,
+          mobile_number: mobileNumber,
+        },
+      ]);
+    setLoading(false);
+    if (error) {
+      toast({
+        title: "Submission failed",
+        description: error.message,
+        variant: "destructive"
+      });
+      return;
+    }
+    toast({
+      title: "Request submitted!",
+      description: "We received your early access request.",
+    });
     setIsSubmitted(true);
   };
 
@@ -34,7 +61,6 @@ export default function EarlyAccessForm() {
         <p className="text-center text-lg text-gray-400 mb-11 max-w-2xl mx-auto">
           Be among the first to experience the future of retail management. Fill out the form below to get started.
         </p>
-
         {!isSubmitted ? (
           <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6">
             <div>
@@ -51,7 +77,6 @@ export default function EarlyAccessForm() {
                 className="w-full px-4 py-2 rounded-lg bg-[#232744] border border-purple-500/20 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
-
             <div>
               <label htmlFor="storeName" className="block text-sm font-medium text-gray-300 mb-1">
                 Store Name
@@ -66,7 +91,6 @@ export default function EarlyAccessForm() {
                 className="w-full px-4 py-2 rounded-lg bg-[#232744] border border-purple-500/20 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
-
             <div>
               <label htmlFor="storeType" className="block text-sm font-medium text-gray-300 mb-1">
                 Store Type
@@ -87,7 +111,6 @@ export default function EarlyAccessForm() {
                 <option value="other">Other</option>
               </select>
             </div>
-
             <div>
               <label htmlFor="mobileNumber" className="block text-sm font-medium text-gray-300 mb-1">
                 Mobile Number
@@ -102,12 +125,12 @@ export default function EarlyAccessForm() {
                 className="w-full px-4 py-2 rounded-lg bg-[#232744] border border-purple-500/20 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
-
             <button
               type="submit"
+              disabled={loading}
               className="w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity mt-6"
             >
-              Submit Request
+              {loading ? "Submitting..." : "Submit Request"}
             </button>
           </form>
         ) : (
@@ -122,4 +145,4 @@ export default function EarlyAccessForm() {
       </div>
     </section>
   );
-} 
+}
