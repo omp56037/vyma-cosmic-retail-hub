@@ -1,4 +1,3 @@
-
 import React from "react";
 import Logo from "@/components/Logo";
 import HeroCTAs from "@/components/HeroCTAs";
@@ -13,6 +12,7 @@ import {
   Image,
   CircleDollarSign,
 } from "lucide-react";
+import EarlyAccessForm from "@/components/EarlyAccessForm";
 
 // --- Features Array ---
 const features = [
@@ -75,19 +75,25 @@ const comingSoon = [
 // --- Midpage Product Visuals ---
 const productImages = [
   {
-    alt: "Mobile mockup",
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
-    tw: "w-40 h-56 object-contain rounded-xl shadow-md",
+    alt: "iPhone mockup showing Vyma app",
+    src: "/images/iphone-mockup.png",
+    tw: "w-24 h-40 object-contain rounded-2xl bg-[#f7f3f8] p-4 flex items-center justify-center",
+    glow: false,
+    cosmicShadow: "shadow-[0_0_120px_24px_rgba(59,130,246,0.85)] ring-4 ring-blue-400/80",
   },
   {
-    alt: "Tablet mockup",
-    src: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80",
-    tw: "w-72 h-72 object-contain rounded-2xl border-4 border-[#231959]/80 shadow-xl mx-4",
+    alt: "MacBook mockup showing Vyma analytics",
+    src: "/images/macbook-mockup.png",
+    tw: "w-64 h-32 object-contain rounded-2xl bg-[#f7f3f8] p-4 flex items-center justify-center",
+    glow: false,
+    cosmicShadow: "shadow-[0_0_120px_24px_rgba(59,130,246,0.85)] ring-4 ring-blue-400/80",
   },
   {
-    alt: "Laptop mockup",
-    src: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=600&q=80",
-    tw: "w-40 h-56 object-contain rounded-xl shadow-md",
+    alt: "iPad mockup showing Vyma dashboard",
+    src: "/images/ipad-mockup.png",
+    tw: "w-32 h-44 object-contain rounded-3xl bg-[#f7f3f8] p-4 border-4 border-purple-400/40 flex items-center justify-center",
+    glow: true,
+    cosmicShadow: "shadow-[0_0_120px_24px_rgba(59,130,246,0.85)] ring-4 ring-blue-400/80",
   },
 ];
 
@@ -101,6 +107,11 @@ const midIcons = [
 
 // --- Main Page Layout ---
 const Index = () => {
+  const scrollToEarlyAccess = () => {
+    const element = document.getElementById('early-access');
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden bg-[#111928]">
       {/* Starfield BG */}
@@ -116,7 +127,7 @@ const Index = () => {
         <p className="text-lg md:text-xl text-gray-300 mb-7 text-center max-w-xl">
           Manage sales, inventory, employees, and finances &mdash; smarter, faster, Vyma-style.
         </p>
-        <HeroCTAs />
+        <HeroCTAs onRequestAccess={scrollToEarlyAccess} />
       </section>
 
       {/* Features Section */}
@@ -127,7 +138,7 @@ const Index = () => {
             <span className="bg-gradient-to-r from-purple-300 via-pink-400 to-yellow-300 bg-clip-text text-transparent">Potential</span>
           </h2>
           <p className="text-center text-lg text-gray-400 mb-12">
-            Discover how Vyma’s AI-powered platform revolutionizes your operations, from seamless transactions to intelligent insights.
+            Discover how Vyma's AI-powered platform revolutionizes your operations, from seamless transactions to intelligent insights.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {features.map((f) => (
@@ -155,12 +166,15 @@ const Index = () => {
           <p className="max-w-xl mx-auto text-center text-lg text-gray-300 mb-8">
             Experience the future of retail with Vyma. Our AI-powered platform seamlessly integrates POS and operations, transforming your business.
           </p>
-          {/* Device visual mockups */}
-          <div className="flex gap-3 flex-col md:flex-row items-center mb-8">
-            {productImages.map(({ src, alt, tw }, i) => (
-              <div key={i} className={`flex items-center justify-center bg-[#201e2b]/80 rounded-2xl ${tw} shadow-lg animate-fade-in`}>
-                {/* Use img's with appropriate accessible alt. */}
-                <img src={src} alt={alt} className="w-full h-full object-contain rounded-xl" />
+          {/* Device visual mockups - reference style */}
+          <div className="flex flex-row items-end justify-center gap-8 md:gap-16 mb-10">
+            {productImages.map(({ src, alt, tw, glow, cosmicShadow }, i) => (
+              <div
+                key={i}
+                className={`flex items-center justify-center ${tw} ${cosmicShadow} transition-all duration-300`}
+                style={{ minHeight: i === 1 ? '18rem' : '12rem' }}
+              >
+                <img src={src} alt={alt} className="w-full h-full object-contain" />
               </div>
             ))}
           </div>
@@ -198,6 +212,11 @@ const Index = () => {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Early Access Form Section */}
+      <section id="early-access" className="relative z-10">
+        <EarlyAccessForm />
       </section>
 
       {/* Footer */}

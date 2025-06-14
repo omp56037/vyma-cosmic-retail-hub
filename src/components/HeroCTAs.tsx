@@ -1,8 +1,11 @@
-
 import React, { useState } from "react";
 import { Mail } from "lucide-react";
 
-export default function HeroCTAs() {
+interface HeroCTAsProps {
+  onRequestAccess: () => void;
+}
+
+export default function HeroCTAs({ onRequestAccess }: HeroCTAsProps) {
   const [email, setEmail] = useState("");
   const [showThanks, setShowThanks] = useState(false);
 
@@ -12,7 +15,7 @@ export default function HeroCTAs() {
       <button
         className="relative inline-flex items-center justify-center text-lg font-semibold px-7 py-3 bg-gradient-to-tr from-purple-500 via-violet-600 to-pink-500 rounded-xl shadow-lg ring-2 ring-purple-700/20 hover:scale-105 focus:scale-105 transition-all duration-150 text-white mt-2 mb-1 animate-glow"
         style={{ boxShadow: "0 4px 24px 4px #a855f764" }}
-        onClick={() => setShowThanks(true)}
+        onClick={onRequestAccess}
       >
         <span className="mr-2 text-xl">🚀</span>
         Request Early Access
@@ -46,7 +49,7 @@ export default function HeroCTAs() {
       </form>
       {showThanks && (
         <div className="w-full text-center mt-3 text-purple-300 font-medium animate-fade-in">
-          Thanks! We’ll keep you in the loop ✨
+          Thanks! We'll keep you in the loop ✨
         </div>
       )}
     </div>
