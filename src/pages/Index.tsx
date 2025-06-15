@@ -1,114 +1,74 @@
-
 import React from "react";
 import Logo from "@/components/Logo";
 import HeroCTAs from "@/components/HeroCTAs";
 import { FeatureCard } from "@/components/FeatureCard";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import {
-  DollarSign,
+  Monitor,
   FileText,
   Users,
-  Inbox,
-  Monitor,
-  Check,
+  Mail,
+  CircleCheck,
+  Image,
+  CircleDollarSign,
 } from "lucide-react";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
 
 // --- Features Array ---
 const features = [
   {
-    icon: <DollarSign size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <CircleDollarSign size={30} strokeWidth={2.2} />,
     title: "POS & Billing",
-    description: (
-      <>
-        Streamline transactions with our intuitive and lightning-fast point-of-sale system.
-      </>
-    ),
+    description: "Streamline transactions with our intuitive and lightning-fast point-of-sale system.",
   },
   {
-    icon: <FileText size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <FileText size={30} strokeWidth={2.2} />,
     title: "Inventory Management",
-    description: (
-      <>
-        Effortlessly manage stock levels, track product movement, and reduce waste.
-      </>
-    ),
+    description: "Effortlessly manage stock levels, track product movement, and reduce waste.",
   },
   {
-    icon: <Users size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <Users size={30} strokeWidth={2.2} />,
     title: "Employee Access Control",
-    description: (
-      <>
-        Secure your business with granular control over staff access and permissions.
-      </>
-    ),
+    description: "Secure your business with granular control over staff access and permissions.",
   },
   {
-    icon: <Inbox size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <Mail size={30} strokeWidth={2.2} />,
     title: "Online Orders & Deliveries",
-    description: (
-      <>
-        Seamlessly integrate online orders and manage deliveries from a unified platform.
-      </>
-    ),
+    description: "Seamlessly integrate online orders and manage deliveries from a unified platform.",
   },
   {
-    icon: <Monitor size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <Monitor size={30} strokeWidth={2.2} />,
     title: "Smart Dashboard",
-    description: (
-      <>
-        Gain actionable insights and make data-driven decisions.
-      </>
-    ),
+    description: "Gain actionable insights and make data-driven decisions.",
   },
   {
-    icon: <Check size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <CircleCheck size={30} strokeWidth={2.2} />,
     title: "Voice & Language Support",
-    description: (
-      <>
-        Reach more customers with multi-language support and voice commands.
-      </>
-    ),
+    description: "Reach more customers with multi-language support and voice commands.",
   },
 ];
 
 // --- Coming Soon ---
 const comingSoon = [
   {
-    icon: <FileText size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <FileText size={30} />,
     title: "Advanced Accounting",
-    description: (
-      <>
-        Streamline your finances with automated bookkeeping, expense tracking, and detailed financial reports.
-      </>
-    ),
+    description: "Streamline your finances with automated bookkeeping, expense tracking, and detailed financial reports.",
   },
   {
-    icon: <Monitor size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <Monitor size={30} />,
     title: "Shop Insights",
-    description: (
-      <>
-        Gain a deeper understanding of your business with real-time sales data, customer behavior analysis, and inventory management.
-      </>
-    ),
+    description: "Gain a deeper understanding of your business with real-time sales data, customer behavior analysis, and inventory management.",
   },
   {
-    icon: <DollarSign size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <CircleDollarSign size={30} />,
     title: "Credit Analysis & Loan Access",
-    description: (
-      <>
-        Access tailored financing options and credit insights to fuel your growth and manage cash flow effectively.
-      </>
-    ),
+    description: "Access tailored financing options and credit insights to fuel your growth and manage cash flow effectively.",
   },
   {
-    icon: <Inbox size={30} strokeWidth={2.2} className="text-purple-400" />,
+    icon: <Mail size={30} />,
     title: "Local Advertising & Marketing Boosts",
-    description: (
-      <>
-        Reach more customers in your area with targeted advertising campaigns and marketing tools designed to boost local visibility.
-      </>
-    ),
+    description: "Reach more customers in your area with targeted advertising campaigns and marketing tools designed to boost local visibility.",
   },
 ];
 
@@ -139,10 +99,10 @@ const productImages = [
 
 // --- Mid-page icons
 const midIcons = [
-  { icon: <DollarSign size={22} className="text-purple-400" />, label: "POS & Billing" },
-  { icon: <Inbox size={22} className="text-purple-400" />, label: "Online Orders" },
-  { icon: <Monitor size={22} className="text-purple-400" />, label: "Smart Dashboard" },
-  { icon: <Check size={22} className="text-purple-400" />, label: "Voice AI" },
+  { icon: <CircleDollarSign size={22} className="text-purple-400" />, label: "AI-Powered POS" },
+  { icon: <Users size={22} className="text-purple-400" />, label: "Retail Operations" },
+  { icon: <Monitor size={22} className="text-purple-400" />, label: "Data Analytics" },
+  { icon: <CircleCheck size={22} className="text-purple-400" />, label: "Seamless Integration" },
 ];
 
 // --- Main Page Layout ---
@@ -178,7 +138,7 @@ const Index = () => {
             <span className="bg-gradient-to-r from-purple-300 via-pink-400 to-yellow-300 bg-clip-text text-transparent">Potential</span>
           </h2>
           <p className="text-center text-lg text-gray-400 mb-12">
-            Run your entire store, staff, and customer experience with one voice-driven, AI-enabled platform.
+            Discover how Vyma's AI-powered platform revolutionizes your operations, from seamless transactions to intelligent insights.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {features.map((f) => (
@@ -238,10 +198,10 @@ const Index = () => {
             <span className="bg-gradient-to-r from-purple-300 via-pink-400 to-purple-400 bg-clip-text text-transparent">Soon...</span>
           </h2>
           <p className="text-center text-lg text-gray-400 mb-11 max-w-2xl mx-auto">
-            New AI-powered tools, marketing, business insights and integrations are on the way to help your business grow!
+            Exciting new features are on the horizon to empower your business even further. Get ready for the next level of retail innovation.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
-            {comingSoon.map((cs) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+            {comingSoon.map((cs, idx) => (
               <FeatureCard
                 key={cs.title}
                 icon={cs.icon}
