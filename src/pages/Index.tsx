@@ -8,6 +8,9 @@ import {
   CircleArrowDown,
   ArrowUp,
   ArrowDown,
+  Users,
+  Monitor,
+  CircleCheck,
 } from "lucide-react";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
 
