@@ -17,7 +17,7 @@ import EarlyAccessForm from "@/components/EarlyAccessForm";
 // --- Features Array ---
 const features = [
   {
-    icon: <DollarSign size={30} strokeWidth={2.2} />,
+    icon: <DollarSign size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "POS & Billing",
     description: (
       <>
@@ -26,7 +26,7 @@ const features = [
     ),
   },
   {
-    icon: <FileText size={30} strokeWidth={2.2} />,
+    icon: <FileText size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Inventory Management",
     description: (
       <>
@@ -35,7 +35,7 @@ const features = [
     ),
   },
   {
-    icon: <Users size={30} strokeWidth={2.2} />,
+    icon: <Users size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Employee Access Control",
     description: (
       <>
@@ -44,7 +44,7 @@ const features = [
     ),
   },
   {
-    icon: <Inbox size={30} strokeWidth={2.2} />,
+    icon: <Inbox size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Online Orders & Deliveries",
     description: (
       <>
@@ -53,7 +53,7 @@ const features = [
     ),
   },
   {
-    icon: <Monitor size={30} strokeWidth={2.2} />,
+    icon: <Monitor size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Smart Dashboard",
     description: (
       <>
@@ -62,7 +62,7 @@ const features = [
     ),
   },
   {
-    icon: <Check size={30} strokeWidth={2.2} />,
+    icon: <Check size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Voice & Language Support",
     description: (
       <>
@@ -75,7 +75,7 @@ const features = [
 // --- Coming Soon ---
 const comingSoon = [
   {
-    icon: <FileText size={30} strokeWidth={2.2} />,
+    icon: <FileText size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Advanced Accounting",
     description: (
       <>
@@ -84,7 +84,7 @@ const comingSoon = [
     ),
   },
   {
-    icon: <Monitor size={30} strokeWidth={2.2} />,
+    icon: <Monitor size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Shop Insights",
     description: (
       <>
@@ -93,7 +93,7 @@ const comingSoon = [
     ),
   },
   {
-    icon: <DollarSign size={30} strokeWidth={2.2} />,
+    icon: <DollarSign size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Credit Analysis & Loan Access",
     description: (
       <>
@@ -102,7 +102,7 @@ const comingSoon = [
     ),
   },
   {
-    icon: <Inbox size={30} strokeWidth={2.2} />,
+    icon: <Inbox size={30} strokeWidth={2.2} className="text-purple-400" />,
     title: "Local Advertising & Marketing Boosts",
     description: (
       <>
