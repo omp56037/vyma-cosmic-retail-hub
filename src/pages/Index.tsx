@@ -4,71 +4,117 @@ import HeroCTAs from "@/components/HeroCTAs";
 import { FeatureCard } from "@/components/FeatureCard";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import {
-  Monitor,
-  FileText,
-  Users,
-  Mail,
-  CircleCheck,
-  Image,
-  CircleDollarSign,
+  CircleArrowUp,
+  CircleArrowDown,
+  ArrowUp,
+  ArrowDown,
 } from "lucide-react";
 import EarlyAccessForm from "@/components/EarlyAccessForm";
 
 // --- Features Array ---
 const features = [
   {
-    icon: <CircleDollarSign size={30} strokeWidth={2.2} />,
-    title: "POS & Billing",
-    description: "Streamline transactions with our intuitive and lightning-fast point-of-sale system.",
+    icon: <CircleArrowUp size={30} strokeWidth={2.2} />,
+    title: "POS (Point of Sale)",
+    description: (
+      <>
+        Voice-enabled AI billing, smart product suggestions, barcode/voice/manual entry, seamless payments (Cash/Card/UPI/Credit), instant bill sharing via WhatsApp/SMS, discounts/offers, credit sale management, and multi-language voice commands.
+      </>
+    ),
   },
   {
-    icon: <FileText size={30} strokeWidth={2.2} />,
+    icon: <CircleArrowDown size={30} strokeWidth={2.2} />,
     title: "Inventory Management",
-    description: "Effortlessly manage stock levels, track product movement, and reduce waste.",
+    description: (
+      <>
+        AI-managed real-time inventory with voice/barcode controls, auto alerts for expiry/low stock, supplier management, one-tap reorders & payments, and AI-generated purchase orders.
+      </>
+    ),
   },
   {
-    icon: <Users size={30} strokeWidth={2.2} />,
-    title: "Employee Access Control",
-    description: "Secure your business with granular control over staff access and permissions.",
+    icon: <ArrowDown size={30} strokeWidth={2.2} />,
+    title: "Order Management",
+    description: (
+      <>
+        Unified offline/online order handling, real-time alerts, countdown timers for pickups/deliveries, smart filters, AI-powered order status queries and hands-free bulk actions.
+      </>
+    ),
   },
   {
-    icon: <Mail size={30} strokeWidth={2.2} />,
-    title: "Online Orders & Deliveries",
-    description: "Seamlessly integrate online orders and manage deliveries from a unified platform.",
+    icon: <ArrowUp size={30} strokeWidth={2.2} />,
+    title: "Employee Management",
+    description: (
+      <>
+        Secure employee access (post-KYC), photo login with face verification, feature-level permissions, full attendance & performance analytics, AI insights on staff activity, salary/incentive tracking.
+      </>
+    ),
   },
   {
-    icon: <Monitor size={30} strokeWidth={2.2} />,
-    title: "Smart Dashboard",
-    description: "Gain actionable insights and make data-driven decisions.",
+    icon: <CircleArrowDown size={30} strokeWidth={2.2} />,
+    title: "AI Dashboard",
+    description: (
+      <>
+        Powerful AI-driven dashboard: live sales, profits, order trends, top products, insightful charts, and AI queries such as "Show sales by hour" or "Low-stock alerts" — with voice input and personalized nudges.
+      </>
+    ),
   },
   {
-    icon: <CircleCheck size={30} strokeWidth={2.2} />,
-    title: "Voice & Language Support",
-    description: "Reach more customers with multi-language support and voice commands.",
+    icon: <CircleArrowUp size={30} strokeWidth={2.2} />,
+    title: "Vyma AI Assistant",
+    description: (
+      <>
+        Present in every module; understands natural language & voice, multi-lingual support, smart suggestions, shop-specific learning, and rapid hands-free task automation.
+      </>
+    ),
   },
 ];
 
 // --- Coming Soon ---
 const comingSoon = [
   {
-    icon: <FileText size={30} />,
-    title: "Advanced Accounting",
-    description: "Streamline your finances with automated bookkeeping, expense tracking, and detailed financial reports.",
+    icon: <CircleArrowUp size={30} />,
+    title: "Targeted Marketing",
+    description: (
+      <>
+        Promote products to nearby customers, run geo-targeted campaigns, and boost shop visibility with targeted offers & ranking.
+      </>
+    ),
   },
   {
-    icon: <Monitor size={30} />,
-    title: "Shop Insights",
-    description: "Gain a deeper understanding of your business with real-time sales data, customer behavior analysis, and inventory management.",
+    icon: <CircleArrowDown size={30} />,
+    title: "Business Consulting",
+    description: (
+      <>
+        AI-driven business advice leveraging trends from nearby Vyma shops — get actionable suggestions and growth tips based on your neighborhood.
+      </>
+    ),
   },
   {
-    icon: <CircleDollarSign size={30} />,
-    title: "Credit Analysis & Loan Access",
-    description: "Access tailored financing options and credit insights to fuel your growth and manage cash flow effectively.",
+    icon: <ArrowDown size={30} />,
+    title: "Accounting",
+    description: (
+      <>
+        End-to-end automated GST/tax, P&L and ledger management; quick export to Excel/Tally, auto-reconciliation and compliance analytics.
+      </>
+    ),
   },
   {
-    icon: <Mail size={30} />,
-    title: "Local Advertising & Marketing Boosts",
-    description: "Reach more customers in your area with targeted advertising campaigns and marketing tools designed to boost local visibility.",
+    icon: <ArrowUp size={30} />,
+    title: "Credit & Lending",
+    description: (
+      <>
+        Internal credit scoring and direct connect to NBFCs — unlock instant, data-driven working capital loans based on shop performance.
+      </>
+    ),
+  },
+  {
+    icon: <CircleArrowUp size={30} />,
+    title: "Integration Ecosystem",
+    description: (
+      <>
+        Coming support for delivery partners, GST apps, and integrations with Tally, Zoho Books, RazorpayX, and more.
+      </>
+    ),
   },
 ];
 
@@ -99,7 +145,7 @@ const productImages = [
 
 // --- Mid-page icons
 const midIcons = [
-  { icon: <CircleDollarSign size={22} className="text-purple-400" />, label: "AI-Powered POS" },
+  { icon: <CircleArrowUp size={22} className="text-purple-400" />, label: "AI-Powered POS" },
   { icon: <Users size={22} className="text-purple-400" />, label: "Retail Operations" },
   { icon: <Monitor size={22} className="text-purple-400" />, label: "Data Analytics" },
   { icon: <CircleCheck size={22} className="text-purple-400" />, label: "Seamless Integration" },
@@ -138,7 +184,7 @@ const Index = () => {
             <span className="bg-gradient-to-r from-purple-300 via-pink-400 to-yellow-300 bg-clip-text text-transparent">Potential</span>
           </h2>
           <p className="text-center text-lg text-gray-400 mb-12">
-            Discover how Vyma's AI-powered platform revolutionizes your operations, from seamless transactions to intelligent insights.
+            Run your entire store, staff, and customer experience with one voice-driven, AI-enabled platform.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {features.map((f) => (
@@ -198,9 +244,9 @@ const Index = () => {
             <span className="bg-gradient-to-r from-purple-300 via-pink-400 to-purple-400 bg-clip-text text-transparent">Soon...</span>
           </h2>
           <p className="text-center text-lg text-gray-400 mb-11 max-w-2xl mx-auto">
-            Exciting new features are on the horizon to empower your business even further. Get ready for the next level of retail innovation.
+            New AI-powered tools, marketing, business insights and integrations are on the way to help your business grow!
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-7">
             {comingSoon.map((cs, idx) => (
               <FeatureCard
                 key={cs.title}
